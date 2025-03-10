@@ -38,7 +38,6 @@ stages:
           - modules/101-1password.yml
           - modules/202-howdy.yml
           - modules/303-warp.yml
-          - modules/404-act.yml
 
       - type: shell
         name: comps
