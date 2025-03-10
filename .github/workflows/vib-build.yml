@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write # Allow actions to create a digest
+      contents: write
 
     outputs:
       has_updates: ${{ steps.set_output.outputs.has_updates }}
@@ -35,7 +35,7 @@ jobs:
       - name: Read base image name from recipe
         id: read_base_recipe
         run: |
-          BASE_IMAGE="$(fy-filter -f vanilla/recipe.yml /stages/-1/base)"
+          BASE_IMAGE="$(fy-filter -f recipe.yml /stages/-1/base)"
           echo The base image is $BASE_IMAGE
           if [ -z $BASE_IMAGE ]; then exit 1; fi
           echo "base_image=$BASE_IMAGE" >> "$GITHUB_OUTPUT"
@@ -95,16 +95,16 @@ jobs:
     if: ${{ needs.check_update.outputs.has_updates == 'true' }}
 
     permissions:
-      packages: write # Allow pushing images to GHCR
-      attestations: write # To create and write attestations
-      id-token: write # Additional permissions for the persistence of the attestations
+      packages: write
+      id-token: write
+      attestations: write
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: vanilla-os/vib-gh-action@v1.0.0
         with:
-          recipe: "vanilla/recipe.yml"
+          recipe: "recipe.yml"
           plugins: "Vanilla-OS/vib-fsguard:v1.5.3"
 
       - uses: actions/upload-artifact@v4

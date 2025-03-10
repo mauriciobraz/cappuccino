@@ -1,0 +1,5 @@
+type: go
+name: act
+source:
+  url: https://github.com/nektos/act.git
+  type: git
