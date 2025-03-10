@@ -14,6 +14,7 @@ fzf
 git
 git-lfs
 gnupg
+golang
 htop
 jq
 libboost-python-dev
