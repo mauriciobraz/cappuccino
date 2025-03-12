@@ -1,4 +1,5 @@
-# Or just install the packages with:
+# User setup with:
+# $ stow -v -t $HOME dotfiles
 # $ vso install $(yq -r '.packages[]' vanilla.yml)
 
 name: debi
