@@ -40,13 +40,6 @@ stages:
           - modules/303-warp.yml
 
       - type: shell
-        name: comps
-        commands:
-          - vso completion fish >  /etc/fish/completions/vso.fish
-          - apx completion fish >  /etc/fish/completions/apx.fish
-          - abroot completion fish >  /etc/fish/completions/abroot.fish
-
-      - type: shell
         name: clean
         commands:
           - apt-get autoremove -y

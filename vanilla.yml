@@ -1,17 +1,25 @@
+# Or just install the packages with:
+# $ vso install $(yq -r '.packages[]' vanilla.yml)
+
 name: debi
 base: ghcr.io/vanilla-os/pico:main
+
 packages:
   - apt-transport-https
-  - bzip2
-  - unzip
   - autoconf
   - automake
   - build-essential
+  - bzip2
+  - ca-certificates
   - cmake
-  - libtool
-  - make
-  - meson
-  - ninja-build
+  - curl
+  - dirmngr
+  - docker-compose
+  - docker.io
+  - git
+  - git-lfs
+  - gnupg
+  - jq
   - libboost-python-dev
   - libevdev-dev
   - libjpeg-dev
@@ -19,16 +27,16 @@ packages:
   - libpam0g-dev
   - libpng-dev
   - libssl-dev
+  - libtool
   - libudev-dev
   - libxml2-dev
   - libxslt1-dev
-  - zlib1g-dev
-  - jq
-  - yq
-  - curl
-  - netcat
-  - wget
-  - tree
+  - make
+  - meson
+  - micro
+  - ninja-build
+  - podman
+  - podman-compose
   - python3
   - python3-dbus
   - python3-dev
@@ -40,26 +48,17 @@ packages:
   - python3-pygit2
   - python3-pyvirtualdisplay
   - python3-requests
-  - python3-scrapy
   - python3-secretstorage
-  - python3-selenium
   - python3-setuptools
   - python3-venv
   - python3-wheel
-  - ca-certificates
-  - dirmngr
-  - gnupg
-  - chromium
-  - firefox
-  - firefox-esr
-  - elinks
-  - links
-  - lynx
-  - git
-  - git-lfs
+  - tree
+  - unzip
+  - wget
   - xserver-xephyr
   - xvfb
-  - micro
+  - yq
+  - zlib1g-dev
 
 pkgmanager: apt
 builtin: false
