@@ -35,6 +35,7 @@ packages:
   - make
   - meson
   - micro
+  - netcat-traditional
   - ninja-build
   - podman
   - podman-compose

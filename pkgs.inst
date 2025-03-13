@@ -37,6 +37,7 @@ meld
 meson
 micro
 net-tools
+netcat-traditional
 ninja-build
 nmap
 openssh-server
