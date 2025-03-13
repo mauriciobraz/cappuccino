@@ -185,16 +185,6 @@ bower_components
 .cache
 .cython_debug
 
-# Executables and binaries
-*.exe
-*.exe~
-*.dll
-*.dylib
-*.test
-*.out
-*.pdb
-*.tgz
-
 # Backup files
 *.bak
 *.gho
@@ -213,16 +203,6 @@ go.work.sum
 # Rust
 target/
 debug/
-
-# Virtualenv
-[Bb]in
-[Ii]nclude
-[Ll]ib
-[Ll]ib64
-[Ll]ocal
-[Ss]cripts
-pyvenv.cfg
-pip-selfcheck.json
 
 # Serverless
 .serverless/

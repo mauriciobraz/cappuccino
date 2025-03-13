@@ -5,12 +5,6 @@ set -U FZF_COMPLETE 1
 if type -q micro
     set -x EDITOR micro
     set -x VISUAL micro
-else if type -q nano
-    set -x EDITOR nano
-    set -x VISUAL nano
-else
-    set -x EDITOR vim
-    set -x VISUAL vim
 end
 
 alias . 'cd .'
@@ -39,3 +33,9 @@ if not contains $HOME/.local/bin $PATH
 end
 
 set sponge_regex_patterns '^(python|node|go\s+run|ruby|perl|php)'
+
+for command in abroot apx vso op tailscale
+    type -q command && $command completion fish > $XDG_CONFIG_HOME/$command.fish
+end
+
+type -q warp-cli && warp-cli generate-completions fish > $XDG_CONFIG_HOME/warp-cli.fish
