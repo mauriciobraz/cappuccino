@@ -38,7 +38,6 @@ stages:
           - modules/100-compose-flatpak.yml
           - modules/101-1password.yml
           - modules/102-tailscale.yml
-          - modules/202-howdy.yml
           - modules/303-warp.yml
 
       - type: shell
