@@ -1,5 +1,12 @@
-[commit]
-  gpgsign = true
+[user]
+  name = Maurício Braz Gonçalves
+  email = mauriciobraz@proton.me
+
+[includeIf "gitdir:~/Code/fattureweb/"]
+path = ~/Code/fattureweb/.gitconfig
+
+[includeIf "gitdir:~/Code/mauriciobraz/"]
+path = ~/Code/mauriciobraz/.gitconfig
 
 [gpg]
   format = ssh

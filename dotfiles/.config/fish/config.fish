@@ -1,4 +1,3 @@
-
 set -U fish_greeting
 set -U FZF_COMPLETE 1
 
@@ -22,10 +21,10 @@ alias .4 'cd ../../../..'
 alias ..... 'cd ../../../..'
 
 if status --is-interactive
-    if not functions -q fisher
-        curl -sL https://git.io/fisher | fish
-        fisher update
-    end
+   if not functions -q fisher
+       curl -sL https://git.io/fisher | fish
+       fisher update
+   end
 end
 
 if not contains $HOME/.local/bin $PATH
@@ -34,8 +33,33 @@ end
 
 set sponge_regex_patterns '^(python|node|go\s+run|ruby|perl|php)'
 
-for command in abroot apx vso op tailscale
-    type -q command && $command completion fish > $XDG_CONFIG_HOME/$command.fish
+if not test -f $XDG_CONFIG_HOME/fish/completions/uv.fish
+    uv --generate-shell-completion fish > $XDG_CONFIG_HOME/fish/completions/uv.fish
 end
 
-type -q warp-cli && warp-cli generate-completions fish > $XDG_CONFIG_HOME/warp-cli.fish
+if not test -f $XDG_CONFIG_HOME/fish/completions/uvx.fish
+    uvx --generate-shell-completion fish > $XDG_CONFIG_HOME/fish/completions/uvx.fish
+end
+
+if type -q host-shell
+    function op
+        host-shell op $argv
+    end
+
+    function warp-cli
+        host-shell warp-cli $argv
+    end
+
+    function tailscale
+        host-shell tailscale $argv
+    end
+
+    host-shell op completion fish ^/dev/null \
+        > $XDG_CONFIG_HOME/fish/completions/op.fish
+
+    host-shell tailscale completion fish ^/dev/null \
+        > $XDG_CONFIG_HOME/fish/completions/tailscale.fish
+
+    host-shell warp-cli generate-completions fish ^/dev/null \
+        > $XDG_CONFIG_HOME/fish/completions/warp-cli.fish
+end

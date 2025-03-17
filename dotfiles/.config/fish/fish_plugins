@@ -1,16 +1,11 @@
 pure-fish/pure
 jethrokuan/fzf
-
 nakulj/auto-venv
 laughedelic/pisces
 fishingline/safe-rm
-
-jorgebucaran/fisher
 jhillyerd/plugin-git
 halostatue/fish-rust
-
 meaningful-ooo/sponge
 jorgebucaran/nvm.fish
 halostatue/fish-docker
-
 oh-my-fish/plugin-pyenv
