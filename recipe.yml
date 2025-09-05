@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mauriciobraz/vos/refs/heads/main/schemas/recipe.json
+
+id: cappuccino
+name: cappuccino
+
+stages:
+  - id: build
+    base: ghcr.io/vanilla-os/desktop:main
+    args: { DEBIAN_FRONTEND: noninteractive }
+
+    addincludes: true
+    singlelayer: false
+
+    labels:
+      maintainer: Maurício Braz Gonçalves
+
+    runs:
+      commands:
+        - echo 'APT::Install-Recommends "1";' \
+          > /etc/apt/apt.conf.d/01norecommends
+
+    modules:
+      - type: shell
+        name: system
+        commands:
+          - lpkg --unlock
+          - apt-get update
+          - apt-get upgrade -y
+
+      - type: apt
+        name: pkg
+        sources:
+          - path: pkgs.inst
+
+      - name: includes
+        type: includes
+        includes:
+          - modules/10-flatpak-xcompose.yml
+          - modules/20-tailscale.yml
+          - modules/30-1password.yml
+          - modules/40-warp.yml
+
+      - type: shell
+        name: clean
+        commands:
+          - apt-get autoremove -y
+          - apt-get clean
+          - lpkg --lock
+
+      - type: fsguard
+        name: fsguard
+
+        GenerateKey: true
+        CustomFsGuard: false
+
+        FilelistPaths: ["/usr/bin"]
+        FsGuardLocation: "/usr/sbin/FsGuard"
+
+        modules:
+          - type: shell
+            name: setup
+            commands:
+              - rm -rf /FsGuard
+              - rm -f ./minisign.pub ./minisign.key
+              - chmod +x /usr/sbin/init
+
+      - name: clean
+        type: shell
+        commands:
+          - rm -rf /tmp/*
+          - rm -rf /sources
+          - rm -rf /var/tmp/*
+
+vibversion: 1.0.0
+includespath: includes

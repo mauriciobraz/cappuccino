@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if command -v warp-cli &> /dev/null; then
+	exec warp-cli "$@"
+end
+
+if ! command -v host-shell &> /dev/null; then
+	echo "Error: host-shell not found, please ensure:"
+	echo ""
+	echo "  1. You're running inside a VanillaOS container"
+	echo "  2. Your user has permissions to access host-shell"
+	echo ""
+	echo "Vanilla OS Docs: https://docs.vanillaos.org"
+
+	exit 1
+fi
+
+exec host-shell warp-cli "$@"
