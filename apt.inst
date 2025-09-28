@@ -95,6 +95,7 @@ python3-setuptools
 python3-six
 python3-xcbgen
 qtbase5-dev
+ripgrep
 rsync
 sed
 sudo

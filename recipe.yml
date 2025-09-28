@@ -104,13 +104,6 @@ stages:
           branch: master
 
       - type: cargo
-        name: ripgrep
-        source:
-          url: https://github.com/BurntSushi/ripgrep.git
-          type: git
-          branch: master
-
-      - type: cargo
         name: sd
         source:
           url: https://github.com/chmln/sd.git
