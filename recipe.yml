@@ -75,13 +75,6 @@ stages:
           type: git
           branch: master
 
-      - type: go
-        name: gh-cli
-        source:
-          url: https://github.com/cli/cli.git
-          type: git
-          branch: trunk
-
       - type: cargo
         name: eza
         source:
