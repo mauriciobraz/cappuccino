@@ -132,21 +132,6 @@ stages:
           repourl: https://flathub.org/repo/flathub.flatpakrepo
           reponame: flathub
 
-      - type: shell
-        name: gnome-fonts
-        commands:
-          - curl -L https://github.com/subframe7536/maple-font/releases/download/v7.7/MapleMono-TTF.zip -o /tmp/MapleMono-TTF.zip
-          - git clone https://gitlab.gnome.org/GNOME/adwaita-fonts.git /tmp/adwaita-fonts
-          - unzip /tmp/MapleMono-TTF.zip -d /tmp/MapleMono-TTF
-          - mkdir -p /usr/share/fonts/Adwaita
-          - mkdir -p /usr/share/fonts/Maple
-          - find /tmp/adwaita-fonts/mono -name "*.ttf" -exec cp {} /usr/share/fonts/Adwaita/ \;
-          - find /tmp/adwaita-fonts/sans -name "*.ttf" -exec cp {} /usr/share/fonts/Adwaita/ \;
-          - find /tmp/maple-font -name "*.ttf" -exec cp {} /usr/share/fonts/MapleMono/ \;
-          - fc-cache -fv
-          - gsettings set org.gnome.desktop.interface font-name "Adwaita Sans 10"
-          - gsettings set org.gnome.desktop.interface monospace-font-name "Adwaita Mono 10"
-
       # proprietary
       # proprietary
 
