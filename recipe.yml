@@ -1,0 +1,80 @@
+id: cappuccino
+name: cappuccino
+
+vibversion: 1.0.0
+includespath: includes
+
+stages:
+  - id: build
+    args:
+      DEBIAN_FRONTEND: noninteractive
+    base: ghcr.io/vanilla-os/desktop:main
+
+    addincludes: true
+    singlelayer: false
+
+    runs:
+      commands:
+        - echo 'APT::Install-Recommends "1";' > /etc/apt/apt.conf.d/01norecommends
+
+    modules:
+      - type: shell
+        name: system
+        commands:
+          - lpkg --unlock
+          - apt-get update
+          - apt-get upgrade -y
+
+      - type: shell
+        name: clean (1)
+        commands:
+          - apt-get autoremove -y
+          - apt-get clean
+          - lpkg --lock
+
+      - type: apt
+        name: dependencies
+        sources:
+          - path: apt.inst
+
+      - type: includes
+        names: modules
+        includes:
+          - modules/dx.yml
+          - modules/ux.yml
+          - modules/proprietary/1password.yml
+          - modules/proprietary/flatpak.yml
+          - modules/proprietary/tailscale.yml
+
+      - type: shell
+        name: set-image-abroot-config
+        commands:
+          - IMAGE_NAME="$(cat /image-info/image-name)"
+          - echo custom image name "$IMAGE_NAME"
+          - IMAGE_NAME_ESCAPED="$(echo $IMAGE_NAME | sed 's/\//\\\//g')"
+          - sed -i "s/changed_automatically_by_vib/$IMAGE_NAME_ESCAPED/g" /usr/share/abroot/abroot.json
+          - rm -rf /image-info
+
+      - type: fsguard
+        name: fsguard
+
+        GenerateKey: true
+        CustomFsGuard: false
+
+        FilelistPaths: ["/usr/bin"]
+        FsGuardLocation: "/usr/sbin/FsGuard"
+
+        modules:
+          - type: shell
+            name: setup
+            commands:
+              - rm -rf /FsGuard
+              - rm -f ./minisign.pub ./minisign.key
+              - chmod +x /usr/sbin/init
+
+      - type: shell
+        name: clean (2)
+        commands:
+          - rm -rf /tmp/*
+          - rm -rf /sources
+          - rm -rf /var/tmp/*

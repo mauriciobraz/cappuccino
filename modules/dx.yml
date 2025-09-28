@@ -1,0 +1,174 @@
+modules:
+  - type: cmake
+    name: btop
+    source:
+      url: https://github.com/aristocratos/btop.git
+      type: git
+      branch: main
+    buildflags: "-DCMAKE_BUILD_TYPE=Release"
+
+  - type: cargo
+    name: atuin
+    source:
+      url: https://github.com/atuinsh/atuin.git
+      type: git
+      branch: main
+
+  - type: cargo
+    name: bandwhich
+    source:
+      url: https://github.com/imsnif/bandwhich.git
+      type: git
+      branch: main
+
+  - type: cargo
+    name: bat
+    source:
+      url: https://github.com/sharkdp/bat.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: delta
+    source:
+      url: https://github.com/dandavison/delta.git
+      type: git
+      branch: main
+
+  - type: go
+    name: direnv
+    source:
+      url: https://github.com/direnv/direnv.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: dust
+    source:
+      url: https://github.com/bootandy/dust.git
+      type: git
+      branch: master
+
+  - type: go
+    name: gh-cli
+    source:
+      url: https://github.com/cli/cli.git
+      type: git
+      branch: trunk
+
+  - type: cargo
+    name: eza
+    source:
+      url: https://github.com/eza-community/eza.git
+      type: git
+      branch: main
+
+  - type: cargo
+    name: fd
+    source:
+      url: https://github.com/sharkdp/fd.git
+      type: git
+      branch: master
+
+  - type: go
+    name: glow
+    source:
+      url: https://github.com/charmbracelet/glow.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: procs
+    source:
+      url: https://github.com/dalance/procs.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: ripgrep
+    source:
+      url: https://github.com/BurntSushi/ripgrep.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: sd
+    source:
+      url: https://github.com/chmln/sd.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: starship
+    source:
+      url: https://github.com/starship/starship.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: tealdeer
+    source:
+      url: https://github.com/dbrgn/tealdeer.git
+      type: git
+      branch: main
+
+  - type: cargo
+    name: television
+    source:
+      url: https://github.com/alexpasmantier/television.git
+      type: git
+      branch: main
+
+  - type: cargo
+    name: tokei
+    source:
+      url: https://github.com/XAMPPRocky/tokei.git
+      type: git
+      branch: master
+
+  - type: go
+    name: lazydocker
+    source:
+      url: https://github.com/jesseduffield/lazydocker.git
+      type: git
+      branch: master
+
+  - type: go
+    name: lazygit
+    source:
+      url: https://github.com/jesseduffield/lazygit.git
+      type: git
+      branch: master
+
+  - type: go
+    name: micro
+    source:
+      url: https://github.com/zyedidia/micro.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: viddy
+    source:
+      url: https://github.com/sachaos/viddy.git
+      type: git
+      branch: master
+
+  - type: cargo
+    name: delta
+    source:
+      url: https://github.com/dandavison/delta.git
+      type: git
+      branch: main
+
+  - type: shell
+    name: zed-editor
+    commands:
+      - mkdir -p /opt/zed
+      - curl -L "https://zed.dev/api/releases/stable/latest/zed-linux-x86_64.tar.gz" -o /tmp/zed.tar.gz
+      - tar -xvf /tmp/zed.tar.gz -C /opt/zed
+      - ln -sf /opt/zed/zed.app/bin/zed /usr/local/bin/zed
+      - mkdir -p /usr/share/applications
+      - cp /opt/zed/zed.app/share/applications/zed.desktop /usr/share/applications/dev.zed.Zed.desktop
+      - sed -i "s|Icon=zed|Icon=/opt/zed/zed.app/share/icons/hicolor/512x512/apps/zed.png|g" /usr/share/applications/dev.zed.Zed.desktop
+      - sed -i "s|Exec=zed|Exec=/usr/local/bin/zed|g" /usr/share/applications/dev.zed.Zed.desktop
