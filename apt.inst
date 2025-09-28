@@ -82,6 +82,7 @@ lsof
 meld
 mesa-common-dev
 meson
+micro
 ninja-build
 openssh-server
 openssl

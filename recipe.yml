@@ -79,13 +79,6 @@ stages:
           type: git
           branch: master
 
-      - type: go
-        name: micro
-        source:
-          url: https://github.com/zyedidia/micro.git
-          type: git
-          branch: master
-
       - type: shell
         name: zed-editor
         commands:
