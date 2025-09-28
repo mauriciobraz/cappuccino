@@ -33,13 +33,14 @@ stages:
       # dx
       # dx
 
-      - type: cmake
+      - type: make
         name: btop
         source:
           url: https://github.com/aristocratos/btop.git
           type: git
           branch: main
-        buildflags: "-DCMAKE_BUILD_TYPE=Release"
+        buildCommand: "make"
+        installCommand: "make install"
 
       - type: cargo
         name: atuin
