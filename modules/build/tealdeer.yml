@@ -3,3 +3,4 @@ name: tealdeer
 source:
   url: https://github.com/tealdeer-rs/tealdeer.git
   type: git
+  branch: main

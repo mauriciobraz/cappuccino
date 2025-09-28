@@ -3,3 +3,4 @@ name: direnv
 source:
   url: https://github.com/direnv/direnv.git
   type: git
+  branch: master

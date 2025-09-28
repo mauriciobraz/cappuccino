@@ -3,3 +3,4 @@ name: dust
 source:
   url: https://github.com/bootandy/dust.git
   type: git
+  branch: master

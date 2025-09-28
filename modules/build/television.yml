@@ -3,3 +3,4 @@ name: television
 source:
   url: https://github.com/alexpasmantier/television.git
   type: git
+  branch: main

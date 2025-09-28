@@ -3,3 +3,4 @@ name: sd
 source:
   url: https://github.com/chmln/sd.git
   type: git
+  branch: master

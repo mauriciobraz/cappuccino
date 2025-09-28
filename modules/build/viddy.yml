@@ -3,3 +3,4 @@ name: viddy
 source:
   url: https://github.com/sachaos/viddy.git
   type: git
+  branch: master

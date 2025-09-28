@@ -3,3 +3,4 @@ name: eza
 source:
   url: https://github.com/eza-community/eza.git
   type: git
+  branch: main

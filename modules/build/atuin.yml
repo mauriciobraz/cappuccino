@@ -3,3 +3,4 @@ name: atuin
 source:
   url: https://github.com/atuinsh/atuin.git
   type: git
+  branch: main

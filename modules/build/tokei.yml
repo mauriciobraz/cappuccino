@@ -3,3 +3,4 @@ name: tokei
 source:
   url: https://github.com/XAMPPRocky/tokei.git
   type: git
+  branch: master

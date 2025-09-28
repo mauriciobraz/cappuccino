@@ -3,3 +3,4 @@ name: procs
 source:
   url: https://github.com/dalance/procs.git
   type: git
+  branch: master

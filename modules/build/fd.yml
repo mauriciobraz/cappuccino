@@ -3,3 +3,4 @@ name: fd
 source:
   url: https://github.com/sharkdp/fd.git
   type: git
+  branch: master

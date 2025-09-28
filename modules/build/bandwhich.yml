@@ -3,3 +3,4 @@ name: bandwhich
 source:
   url: https://github.com/imsnif/bandwhich.git
   type: git
+  branch: main

@@ -3,3 +3,4 @@ name: uv
 source:
   url: https://github.com/astral-sh/uv
   type: git
+  branch: main

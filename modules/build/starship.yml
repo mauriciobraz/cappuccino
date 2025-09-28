@@ -3,3 +3,4 @@ name: starship
 source:
   url: https://github.com/starship/starship.git
   type: git
+  branch: master
