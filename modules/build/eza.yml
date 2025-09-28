@@ -1,4 +1,6 @@
 type: cargo
 name: eza
-sources:
-  - eza
+source:
+  url: https://github.com/eza-community/eza.git
+  tag: v0.23.3
+  type: git

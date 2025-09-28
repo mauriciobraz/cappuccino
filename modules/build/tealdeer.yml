@@ -1,4 +1,6 @@
 type: cargo
 name: tealdeer
-sources:
-  - tealdeer
+source:
+  url: https://github.com/tealdeer-rs/tealdeer.git
+  tag: v1.7.2
+  type: git

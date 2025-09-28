@@ -1,4 +1,6 @@
 type: cargo
 name: atuin
-sources:
-  - atuin
+source:
+  url: https://github.com/atuinsh/atuin.git
+  tag: v18.8.0
+  type: git

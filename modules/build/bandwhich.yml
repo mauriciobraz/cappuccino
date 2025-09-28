@@ -1,4 +1,6 @@
 type: cargo
 name: bandwhich
-sources:
-  - bandwhich
+source:
+  url: https://github.com/imsnif/bandwhich.git
+  tag: v0.23.1
+  type: git

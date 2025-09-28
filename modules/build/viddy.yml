@@ -1,4 +1,6 @@
 type: cargo
 name: viddy
-sources:
-  - viddy
+source:
+  url: https://github.com/sachaos/viddy.git
+  tag: v1.3.0
+  type: git

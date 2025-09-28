@@ -33,32 +33,31 @@ stages:
       - type: includes
         name: modules
         includes:
-          - build/atuin.yml
-          - build/bandwhich.yml
-          - build/bat.yml
-          - build/delta.yml
-          - build/direnv.yml
-          - build/dust.yml
-          - build/eza.yml
-          - build/fd.yml
-          - build/glow.yml
-          - build/just.yml
-          - build/lazydocker.yml
-          - build/lazygit.yml
-          - build/procs.yml
-          - build/sd.yml
-          - build/starship.yml
-          - build/tealdeer.yml
-          - build/television.yml
-          - build/tokei.yml
-          - build/viddy.yml
-          - prebuilt/1password.yml
-          - prebuilt/docker.yml
-          - prebuilt/flathub.yml
-          - prebuilt/tailscale.yml
-          - prebuilt/zed-editor.yml
-          - fix-flatpak-xcompose.yml
-          - set-image-abroot-config.yml
+          - modules/build/atuin.yml
+          - modules/build/bandwhich.yml
+          - modules/build/bat.yml
+          - modules/build/delta.yml
+          - modules/build/direnv.yml
+          - modules/build/dust.yml
+          - modules/build/eza.yml
+          - modules/build/fd.yml
+          - modules/build/glow.yml
+          - modules/build/lazydocker.yml
+          - modules/build/lazygit.yml
+          - modules/build/procs.yml
+          - modules/build/sd.yml
+          - modules/build/starship.yml
+          - modules/build/tealdeer.yml
+          - modules/build/television.yml
+          - modules/build/tokei.yml
+          - modules/build/viddy.yml
+          - modules/prebuilt/1password.yml
+          - modules/prebuilt/docker.yml
+          - modules/prebuilt/flathub.yml
+          - modules/prebuilt/tailscale.yml
+          - modules/prebuilt/zed-editor.yml
+          - modules/fix-flatpak-xcompose.yml
+          - modules/set-image-abroot-config.yml
 
       - type: shell
         name: cleanup-a

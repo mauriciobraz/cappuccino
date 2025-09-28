@@ -1,4 +1,6 @@
 type: cargo
 name: tokei
-sources:
-  - tokei
+source:
+  url: https://github.com/XAMPPRocky/tokei.git
+  tag: v13.0.0-alpha.9
+  type: git

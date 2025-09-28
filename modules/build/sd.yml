@@ -1,4 +1,6 @@
 type: cargo
 name: sd
-sources:
-  - sd
+source:
+  url: https://github.com/chmln/sd.git
+  type: git
+  commit: 1254e03809f0102dbe8947fd6204ae23c5628cea

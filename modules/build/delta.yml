@@ -1,4 +1,6 @@
 type: cargo
 name: delta
-sources:
-  - delta
+source:
+  url: https://github.com/dandavison/delta.git
+  tag: 0.18.2
+  type: git

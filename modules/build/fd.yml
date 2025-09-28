@@ -1,4 +1,6 @@
 type: cargo
 name: fd
-sources:
-  - fd
+source:
+  url: https://github.com/sharkdp/fd.git
+  tag: v10.3.0
+  type: git
