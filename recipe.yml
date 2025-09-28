@@ -37,14 +37,262 @@ stages:
         sources:
           - path: apt.inst
 
-      - type: includes
-        names: modules
-        includes:
-          - modules/dx.yml
-          - modules/ux.yml
-          - modules/proprietary/1password.yml
-          - modules/proprietary/flatpak.yml
-          - modules/proprietary/tailscale.yml
+      # dx
+      # dx
+
+      - type: cmake
+        name: btop
+        source:
+          url: https://github.com/aristocratos/btop.git
+          type: git
+          branch: main
+        buildflags: "-DCMAKE_BUILD_TYPE=Release"
+
+      - type: cargo
+        name: atuin
+        source:
+          url: https://github.com/atuinsh/atuin.git
+          type: git
+          branch: main
+
+      - type: cargo
+        name: bandwhich
+        source:
+          url: https://github.com/imsnif/bandwhich.git
+          type: git
+          branch: main
+
+      - type: cargo
+        name: bat
+        source:
+          url: https://github.com/sharkdp/bat.git
+          type: git
+          branch: master
+
+      - type: cargo
+        name: delta
+        source:
+          url: https://github.com/dandavison/delta.git
+          type: git
+          branch: main
+
+      - type: go
+        name: direnv
+        source:
+          url: https://github.com/direnv/direnv.git
+          type: git
+          branch: master
+
+      - type: cargo
+        name: dust
+        source:
+          url: https://github.com/bootandy/dust.git
+          type: git
+          branch: master
+
+      - type: go
+        name: gh-cli
+        source:
+          url: https://github.com/cli/cli.git
+          type: git
+          branch: trunk
+
+      - type: cargo
+        name: eza
+        source:
+          url: https://github.com/eza-community/eza.git
+          type: git
+          branch: main
+
+      - type: cargo
+        name: fd
+        source:
+          url: https://github.com/sharkdp/fd.git
+          type: git
+          branch: master
+
+      - type: go
+        name: glow
+        source:
+          url: https://github.com/charmbracelet/glow.git
+          type: git
+          branch: master
+
+      - type: cargo
+        name: procs
+        source:
+          url: https://github.com/dalance/procs.git
+          type: git
+          branch: master
+
+      - type: cargo
+        name: ripgrep
+        source:
+          url: https://github.com/BurntSushi/ripgrep.git
+          type: git
+          branch: master
+
+      - type: cargo
+        name: sd
+        source:
+          url: https://github.com/chmln/sd.git
+          type: git
+          branch: master
+
+      - type: cargo
+        name: starship
+        source:
+          url: https://github.com/starship/starship.git
+          type: git
+          branch: master
+
+      - type: cargo
+        name: tealdeer
+        source:
+          url: https://github.com/dbrgn/tealdeer.git
+          type: git
+          branch: main
+
+      - type: cargo
+        name: television
+        source:
+          url: https://github.com/alexpasmantier/television.git
+          type: git
+          branch: main
+
+      - type: cargo
+        name: tokei
+        source:
+          url: https://github.com/XAMPPRocky/tokei.git
+          type: git
+          branch: master
+
+      - type: go
+        name: lazydocker
+        source:
+          url: https://github.com/jesseduffield/lazydocker.git
+          type: git
+          branch: master
+
+      - type: go
+        name: lazygit
+        source:
+          url: https://github.com/jesseduffield/lazygit.git
+          type: git
+          branch: master
+
+      - type: go
+        name: micro
+        source:
+          url: https://github.com/zyedidia/micro.git
+          type: git
+          branch: master
+
+      - type: cargo
+        name: viddy
+        source:
+          url: https://github.com/sachaos/viddy.git
+          type: git
+          branch: master
+
+      - type: shell
+        name: zed-editor
+        commands:
+          - mkdir -p /opt/zed
+          - curl -L "https://zed.dev/api/releases/stable/latest/zed-linux-x86_64.tar.gz" -o /tmp/zed.tar.gz
+          - tar -xvf /tmp/zed.tar.gz -C /opt/zed
+          - ln -sf /opt/zed/zed.app/bin/zed /usr/local/bin/zed
+          - mkdir -p /usr/share/applications
+          - cp /opt/zed/zed.app/share/applications/zed.desktop /usr/share/applications/dev.zed.Zed.desktop
+          - sed -i "s|Icon=zed|Icon=/opt/zed/zed.app/share/icons/hicolor/512x512/apps/zed.png|g" /usr/share/applications/dev.zed.Zed.desktop
+          - sed -i "s|Exec=zed|Exec=/usr/local/bin/zed|g" /usr/share/applications/dev.zed.Zed.desktop
+
+      # ux
+      # ux
+
+      - type: shell
+        name: fix-xcompose
+        commands:
+          - chmod 644 /etc/XCompose
+          - flatpak override --system --env=QT_IM_MODULE=xim
+          - flatpak override --system --env=GTK_IM_MODULE=xim
+          - flatpak override --system --env=XMODIFIERS=@im=none
+          - flatpak override --system --filesystem=/etc/.XCompose
+
+      - type: flatpak
+        name: flathub
+        user:
+          install:
+            - be.alexandervanhee.gradia
+            - com.brave.Browser
+            - com.github.IsmaelMartinez.teams_for_linux
+            - com.github.rafostar.Clapper
+            - com.github.wwmm.easyeffects
+            - com.google.Chrome
+            - com.obsproject.Studio
+            - com.spotify.Client
+            - de.haeckerfelix.Fragments
+            - dev.vencord.Vesktop
+            - io.github.tobagin.karere
+            - io.gitlab.adhami3310.Impression
+            - io.gitlab.librewolf-community
+            - io.missioncenter.MissionCenter
+            - org.filezillaproject.Filezilla
+            - org.mozilla.firefox
+            - org.onlyoffice.desktopeditors
+            - org.prismlauncher.PrismLauncher
+            - org.telegram.desktop
+            - page.tesk.Refine
+            - io.github.flattool.Ignition
+
+          repourl: https://flathub.org/repo/flathub.flatpakrepo
+          reponame: flathub
+
+      - type: shell
+        name: gnome-fonts
+        commands:
+          - curl -L https://github.com/subframe7536/maple-font/releases/download/v7.7/MapleMono-TTF.zip -o /tmp/MapleMono-TTF.zip
+          - git clone https://gitlab.gnome.org/GNOME/adwaita-fonts.git /tmp/adwaita-fonts
+          - unzip /tmp/MapleMono-TTF.zip -d /tmp/MapleMono-TTF
+          - mkdir -p /usr/share/fonts/Adwaita
+          - mkdir -p /usr/share/fonts/Maple
+          - find /tmp/adwaita-fonts/mono -name "*.ttf" -exec cp {} /usr/share/fonts/Adwaita/ \;
+          - find /tmp/adwaita-fonts/sans -name "*.ttf" -exec cp {} /usr/share/fonts/Adwaita/ \;
+          - find /tmp/maple-font -name "*.ttf" -exec cp {} /usr/share/fonts/MapleMono/ \;
+          - fc-cache -fv
+          - gsettings set org.gnome.desktop.interface font-name "Adwaita Sans 10"
+          - gsettings set org.gnome.desktop.interface monospace-font-name "Adwaita Mono 10"
+
+      # proprietary
+      # proprietary
+
+      - type: shell
+        name: 1password
+        commands:
+          - mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+          - mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+          - curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+          - echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | tee /etc/apt/sources.list.d/1password.list
+          - curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+          - curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+          - apt update && apt install -y 1password 1password-cli
+          - chmod +x /usr/bin/vos-opt-symlink
+          - systemctl enable vos-opt-symlink.service
+
+      - type: shell
+        name: tailscale
+        commands:
+          - curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+          - curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | tee /etc/apt/sources.list.d/tailscale.list
+          - apt-get update && apt-get install -y tailscale
+          - systemctl enable tailscaled
+
+      - type: shell
+        name: warp-cli
+        commands:
+          - curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+          - echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com bookworm main" | tee /etc/apt/sources.list.d/cloudflare-client.list
+          - apt-get update && apt-get install -y cloudflare-warp
 
       - type: shell
         name: set-image-abroot-config
