@@ -16,6 +16,10 @@ gcc-11
 git
 gnome-shell-extensions
 gnupg
+golang
+golang-doc
+golang-go
+golang-src
 gperf
 gsettings-desktop-schemas-dev
 imagemagick
