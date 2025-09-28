@@ -33,14 +33,6 @@ stages:
       # dx
       # dx
 
-      - type: shell
-        name: btop
-        commands:
-          - LATEST_URL=$(curl -s https://api.github.com/repos/aristocratos/btop/releases/latest | grep "browser_download_url.*linux.*x86_64.*tar.gz" | cut -d '"' -f 4 | head -n 1)
-          - curl -L "$LATEST_URL" -o /tmp/btop.tar.gz && mkdir -p /opt/btop && tar -xvf /tmp/btop.tar.gz -C /opt/btop
-          - cp /opt/btop/btop /usr/local/bin/btop
-          - chmod +x /usr/local/bin/btop
-
       - type: cargo
         name: atuin
         source:
