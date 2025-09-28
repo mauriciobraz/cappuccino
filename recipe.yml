@@ -26,7 +26,7 @@ stages:
           - apt-get upgrade -y
 
       - type: shell
-        name: clean (1)
+        name: cleanup-apt
         commands:
           - apt-get autoremove -y
           - apt-get clean
@@ -321,7 +321,7 @@ stages:
               - chmod +x /usr/sbin/init
 
       - type: shell
-        name: clean (2)
+        name: cleanup
         commands:
           - rm -rf /tmp/*
           - rm -rf /sources
