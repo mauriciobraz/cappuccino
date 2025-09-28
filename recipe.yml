@@ -2,7 +2,7 @@ id: cappuccino
 name: cappuccino
 
 vibversion: 1.0.0
-includespath: includes
+includespath: includes.container
 
 stages:
   - id: build
