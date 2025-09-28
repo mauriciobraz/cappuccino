@@ -2,5 +2,4 @@ type: cargo
 name: procs
 source:
   url: https://github.com/dalance/procs.git
-  tag: v0.14.10
   type: git

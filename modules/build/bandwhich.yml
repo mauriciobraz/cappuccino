@@ -2,5 +2,4 @@ type: cargo
 name: bandwhich
 source:
   url: https://github.com/imsnif/bandwhich.git
-  tag: v0.23.1
   type: git

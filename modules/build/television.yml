@@ -2,5 +2,4 @@ type: cargo
 name: television
 source:
   url: https://github.com/alexpasmantier/television.git
-  tag: 0.13.3
   type: git

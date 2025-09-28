@@ -2,5 +2,4 @@ type: cargo
 name: starship
 source:
   url: https://github.com/starship/starship.git
-  tag: v1.23.0
   type: git

@@ -3,4 +3,3 @@ name: lazydocker
 source:
   url: https://github.com/jesseduffield/lazydocker.git
   type: git
-  branch: master

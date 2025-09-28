@@ -3,4 +3,3 @@ name: glow
 source:
   url: https://github.com/charmbracelet/glow.git
   type: git
-  branch: master

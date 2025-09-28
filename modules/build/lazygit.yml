@@ -3,4 +3,3 @@ name: lazygit
 source:
   url: https://github.com/jesseduffield/lazygit.git
   type: git
-  branch: master

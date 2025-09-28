@@ -2,5 +2,4 @@ type: cargo
 name: dust
 source:
   url: https://github.com/bootandy/dust.git
-  tag: v1.2.3
   type: git

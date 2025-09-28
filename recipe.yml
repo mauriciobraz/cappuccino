@@ -51,6 +51,7 @@ stages:
           - modules/build/television.yml
           - modules/build/tokei.yml
           - modules/build/viddy.yml
+          - modules/build/uv.yml
           - modules/prebuilt/1password.yml
           - modules/prebuilt/docker.yml
           - modules/prebuilt/flathub.yml
