@@ -1,0 +1,4 @@
+type: cargo
+name: bandwhich
+sources:
+  - bandwhich

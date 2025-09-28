@@ -1,27 +1,27 @@
 if command -v atuin &> /dev/null; then
-  if [ -n "$BASH_VERSION" ]; then
-    eval "$(atuin init bash)"
-  elif [ -n "$ZSH_VERSION" ]; then
-    eval "$(atuin init zsh)"
-  fi
+	if [ -n "$BASH_VERSION" ]; then
+		eval "$(atuin init bash)"
+	elif [ -n "$ZSH_VERSION" ]; then
+		eval "$(atuin init zsh)"
+	fi
 fi
 
 if command -v starship &> /dev/null; then
-  if [ -n "$BASH_VERSION" ]; then
-    eval "$(starship init bash)"
-  elif [ -n "$ZSH_VERSION" ]; then
-    eval "$(starship init zsh)"
-  fi
+	if [ -n "$BASH_VERSION" ]; then
+		eval "$(starship init bash)"
+	elif [ -n "$ZSH_VERSION" ]; then
+		eval "$(starship init zsh)"
+	fi
 fi
 
 if command -v fzf &> /dev/null; then
-  if [[ -f /usr/share/fzf/completion.bash ]]; then
-    source /usr/share/fzf/completion.bash
-  fi
+	if [[ -f /usr/share/fzf/completion.bash ]]; then
+		source /usr/share/fzf/completion.bash
+	fi
 
-  if [[ -f /usr/share/fzf/key-bindings.bash ]]; then
-    source /usr/share/fzf/key-bindings.bash
-  fi
+	if [[ -f /usr/share/fzf/key-bindings.bash ]]; then
+		source /usr/share/fzf/key-bindings.bash
+	fi
 fi
 
 # shortcuts
@@ -29,16 +29,14 @@ fi
 alias ~='cd ~'
 alias -='cd -'
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-# safer commands
-
 alias cp='cp -i'
 alias ln='ln -i'
 alias mv='mv -i'
 alias rm='rm -i'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # lazygit / lazydocker
 

@@ -6,6 +6,7 @@ ccache
 cmake
 coreutils
 curl
+curl
 debhelper
 desktop-file-utils
 fish
@@ -15,12 +16,14 @@ g++-11
 gcc-11
 git
 gnome-shell-extensions
+gnome-tweaks
 gnupg
 golang
 golang-doc
 golang-go
 golang-src
 gperf
+gpg
 gsettings-desktop-schemas-dev
 imagemagick
 jq
@@ -99,6 +102,7 @@ qtbase5-dev
 ripgrep
 rsync
 sed
+software-properties-common
 sudo
 trash-cli
 tree
@@ -107,6 +111,7 @@ uuid-dev
 valgrind
 vim
 wdiff
+wget
 x11-apps
 xcb-proto
 xfonts-base

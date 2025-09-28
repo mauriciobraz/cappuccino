@@ -1,0 +1,4 @@
+type: cargo
+name: eza
+sources:
+  - eza

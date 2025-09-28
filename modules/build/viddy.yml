@@ -1,0 +1,4 @@
+type: cargo
+name: viddy
+sources:
+  - viddy
