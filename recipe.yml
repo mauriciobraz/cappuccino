@@ -25,13 +25,6 @@ stages:
           - apt-get update
           - apt-get upgrade -y
 
-      - type: shell
-        name: cleanup-apt
-        commands:
-          - apt-get autoremove -y
-          - apt-get clean
-          - lpkg --lock
-
       - type: apt
         name: dependencies
         sources:
@@ -294,6 +287,9 @@ stages:
           - echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com bookworm main" | tee /etc/apt/sources.list.d/cloudflare-client.list
           - apt-get update && apt-get install -y cloudflare-warp
 
+      # finalize
+      # finalize
+
       - type: shell
         name: set-image-abroot-config
         commands:
@@ -302,6 +298,13 @@ stages:
           - IMAGE_NAME_ESCAPED="$(echo $IMAGE_NAME | sed 's/\//\\\//g')"
           - sed -i "s/changed_automatically_by_vib/$IMAGE_NAME_ESCAPED/g" /usr/share/abroot/abroot.json
           - rm -rf /image-info
+
+      - type: shell
+        name: cleanup-pre
+        commands:
+          - apt-get autoremove -y
+          - apt-get clean
+          - lpkg --lock
 
       - type: fsguard
         name: fsguard
@@ -321,7 +324,7 @@ stages:
               - chmod +x /usr/sbin/init
 
       - type: shell
-        name: cleanup
+        name: cleanup-post
         commands:
           - rm -rf /tmp/*
           - rm -rf /sources
