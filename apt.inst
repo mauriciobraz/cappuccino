@@ -1,14 +1,18 @@
 apt-transport-https
 bison
+build-essential
 ca-certificates
 ccache
 cmake
+coreutils
 curl
 debhelper
 desktop-file-utils
 fish
 flex
 g++
+g++-11
+gcc-11
 git
 gnome-shell-extensions
 gnupg
@@ -88,6 +92,7 @@ python3-six
 python3-xcbgen
 qtbase5-dev
 rsync
+sed
 sudo
 trash-cli
 tree
