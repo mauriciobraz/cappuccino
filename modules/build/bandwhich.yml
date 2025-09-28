@@ -1,6 +1,8 @@
-type: cargo
+type: shell
 name: bandwhich
-source:
-  url: https://github.com/imsnif/bandwhich.git
-  type: git
-  branch: main
+commands:
+  - LATEST_URL=$(curl -s https://api.github.com/repos/imsnif/bandwhich/releases/latest | grep "browser_download_url.*x86_64-unknown-linux-gnu.tar.gz" | grep -v ".sha256" | cut -d '"' -f 4)
+  - curl -L -o /tmp/bandwhich.tar.gz "$LATEST_URL" &&  tar -xzf /tmp/bandwhich.tar.gz -C /tmp
+  - EXTRACTED_DIR=$(tar -tzf /tmp/bandwhich.tar.gz | head -1 | cut -f1 -d"/")
+  - sudo mv /tmp/$EXTRACTED_DIR/bandwhich /usr/local/bin/
+  - rm -rf /tmp/bandwhich* /tmp/$EXTRACTED_DIR

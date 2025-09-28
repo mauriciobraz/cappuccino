@@ -1,6 +1,0 @@
-type: cargo
-name: delta
-source:
-  url: https://github.com/dandavison/delta.git
-  type: git
-  branch: main

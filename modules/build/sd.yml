@@ -1,6 +1,8 @@
-type: cargo
+type: shell
 name: sd
-source:
-  url: https://github.com/chmln/sd.git
-  type: git
-  branch: master
+commands:
+  - LATEST_URL=$(curl -s https://api.github.com/repos/chmln/sd/releases/latest | grep "browser_download_url.*x86_64-unknown-linux-gnu.tar.gz" | grep -v ".sha256" | cut -d '"' -f 4)
+  - curl -L -o /tmp/sd.tar.gz "$LATEST_URL" && tar -xzf /tmp/sd.tar.gz -C /tmp
+  - EXTRACTED_DIR=$(tar -tzf /tmp/sd.tar.gz | head -1 | cut -f1 -d"/")
+  - sudo mv /tmp/$EXTRACTED_DIR/sd /usr/local/bin/
+  - rm -rf /tmp/sd* /tmp/$EXTRACTED_DIR

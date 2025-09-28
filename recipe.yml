@@ -35,12 +35,8 @@ stages:
         includes:
           - modules/build/atuin.yml
           - modules/build/bandwhich.yml
-          - modules/build/bat.yml
-          - modules/build/delta.yml
-          - modules/build/direnv.yml
           - modules/build/dust.yml
           - modules/build/eza.yml
-          - modules/build/fd.yml
           - modules/build/glow.yml
           - modules/build/lazydocker.yml
           - modules/build/lazygit.yml

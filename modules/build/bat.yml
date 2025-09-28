@@ -1,6 +1,0 @@
-type: cargo
-name: bat
-source:
-  url: https://github.com/sharkdp/bat.git
-  type: git
-  branch: master
