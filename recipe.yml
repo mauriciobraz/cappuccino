@@ -34,32 +34,22 @@ stages:
       # dx
 
       - type: cargo
-        name: atuin
-        source:
-          url: https://github.com/atuinsh/atuin.git
-          type: git
-          branch: main
-
-      - type: cargo
-        name: bandwhich
-        source:
-          url: https://github.com/imsnif/bandwhich.git
-          type: git
-          branch: main
-
-      - type: cargo
-        name: bat
-        source:
-          url: https://github.com/sharkdp/bat.git
-          type: git
-          branch: master
-
-      - type: cargo
-        name: delta
-        source:
-          url: https://github.com/dandavison/delta.git
-          type: git
-          branch: main
+        name: cargo
+        sources:
+          - atuin
+          - bandwhich
+          - bat
+          - delta
+          - dust
+          - eza
+          - fd
+          - procs
+          - sd
+          - starship
+          - tealdeer
+          - television
+          - tokei
+          - viddy
 
       - type: go
         name: direnv
@@ -68,73 +58,10 @@ stages:
           type: git
           branch: master
 
-      - type: cargo
-        name: dust
-        source:
-          url: https://github.com/bootandy/dust.git
-          type: git
-          branch: master
-
-      - type: cargo
-        name: eza
-        source:
-          url: https://github.com/eza-community/eza.git
-          type: git
-          branch: main
-
-      - type: cargo
-        name: fd
-        source:
-          url: https://github.com/sharkdp/fd.git
-          type: git
-          branch: master
-
       - type: go
         name: glow
         source:
           url: https://github.com/charmbracelet/glow.git
-          type: git
-          branch: master
-
-      - type: cargo
-        name: procs
-        source:
-          url: https://github.com/dalance/procs.git
-          type: git
-          branch: master
-
-      - type: cargo
-        name: sd
-        source:
-          url: https://github.com/chmln/sd.git
-          type: git
-          branch: master
-
-      - type: cargo
-        name: starship
-        source:
-          url: https://github.com/starship/starship.git
-          type: git
-          branch: master
-
-      - type: cargo
-        name: tealdeer
-        source:
-          url: https://github.com/dbrgn/tealdeer.git
-          type: git
-          branch: main
-
-      - type: cargo
-        name: television
-        source:
-          url: https://github.com/alexpasmantier/television.git
-          type: git
-          branch: main
-
-      - type: cargo
-        name: tokei
-        source:
-          url: https://github.com/XAMPPRocky/tokei.git
           type: git
           branch: master
 
@@ -156,13 +83,6 @@ stages:
         name: micro
         source:
           url: https://github.com/zyedidia/micro.git
-          type: git
-          branch: master
-
-      - type: cargo
-        name: viddy
-        source:
-          url: https://github.com/sachaos/viddy.git
           type: git
           branch: master
 
